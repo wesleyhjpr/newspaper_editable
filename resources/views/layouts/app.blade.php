@@ -19,6 +19,28 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            /* Create two equal columns that floats next to each other */
+            .column {
+                float: left;
+                width: 48%;
+                padding: 10px;
+                height: 300px; /* Should be removed. Only for demonstration */
+                margin: 5px;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            </style>
 </head>
 <body>
     <div id="app">

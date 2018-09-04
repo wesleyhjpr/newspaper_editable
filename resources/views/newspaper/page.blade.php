@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+<div id="_token" class="hidden" data-token="{{ csrf_token() }}"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,14 +19,23 @@
                         <hr class="style14">
                     </div> 
                 @endforeach                
-            </div>          
-        </div>    
+            </div>         
+            <button type="button" class="btn btn-primary float-right">Atualizar</button>         
+        </div> 
     </div>    
 </div>
 @endsection
 @section('scripts')
 <script>
-$(document).ready(function() {  
+$(document).ready(function() {
+    $("button").click(function(){
+        sendData();
+    });  
+    function sendData() { 
+        $('.col-md-6  > a, .col-md-6  h2 > a, .col-md-6  div > p').each(function (index, element) {
+            $.post( $(element).data('url'), { name: $(element).data('name'), value: $(element).text(), pk: $(element).data('pk'), _token: $("#_token").data("token") } );
+        });
+    }
     $('.col-md-6').find('a, p').each(function() {
         $(this).click(function() {
             $('.col-md-6 a').not($(this)).prop('contenteditable', false);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Page;
+use Illuminate\Support\Facades\Input;
+
 class PageController extends Controller
 {
     /**
@@ -35,7 +37,6 @@ class PageController extends Controller
         $page = Page::find($id);
         $column_name = Input::get('name');
         $column_value = Input::get('value');
-        
         if( Input::has('name') && Input::has('value')) {
             $page = Page::select()
                 ->where('id', '=', $id)

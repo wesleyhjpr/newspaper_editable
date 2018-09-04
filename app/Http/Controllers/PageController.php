@@ -27,7 +27,26 @@ class PageController extends Controller
             $page_columns[$value] = $value;
         }
         
-        return view('newspaper.page')
+        return view('newspaper.page1')
+            ->with('page', $page)
+            ->with('page_columns', $page_columns)
+        ;
+    }
+    public function index2()
+    {
+        $page = Page::select()
+            ->orderBy('id')
+            ->get()
+            ;
+        
+        // $page_columns = Schema::getColumnListing('page');
+        $page_model = new Page();
+        $fillable_columns = $page_model->getFillable();
+        foreach ($fillable_columns as $key => $value) {
+            $page_columns[$value] = $value;
+        }
+        
+        return view('newspaper.page2')
             ->with('page', $page)
             ->with('page_columns', $page_columns)
         ;

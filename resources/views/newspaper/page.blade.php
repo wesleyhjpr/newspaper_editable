@@ -1,19 +1,5 @@
 @extends('layouts.app')
-@section('scripts')
-<script>
-$(document).ready(function() {
-    $('.col-md-6').find('a, p').each(function() {
-        $(this).click(function() {
-            $('.col-md-6 a').not($(this)).prop('contenteditable', false);
-            $(this).prop('contenteditable', true);
-        });
-        $(this).blur(function() {
-            $(this).prop('contenteditable', false);
-        });
-    });
-});
-</script>
-@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -23,7 +9,7 @@ $(document).ready(function() {
                     <a href="#" class="section-title first">Internacional</a>
                     <div class="teaser-title">
                         <h2 class="title2">
-                            <a href="#">EUA e Canadá não chegam em um acordo sobre o Nafta nesta sexta</a>
+                            <a  href="#">EUA e Canadá não chegam em um acordo sobre o Nafta nesta sexta</a>
                         </h2>
                     </div>
                     <div class="teaser">
@@ -66,8 +52,22 @@ $(document).ready(function() {
                     </div>
                 </div>
             </div>          
-        </div>        
-    </div>
-    
+        </div>    
+    </div>    
 </div>
+@endsection
+@section('scripts')
+<script>
+$(document).ready(function() {   
+    $('.col-md-6').find('a, p').each(function() {
+        $(this).click(function() {
+            $('.col-md-6 a').not($(this)).prop('contenteditable', false);
+            $(this).prop('contenteditable', true);
+        });
+        $(this).blur(function() {
+            $(this).prop('contenteditable', false);
+        });
+    });
+});
+</script>
 @endsection

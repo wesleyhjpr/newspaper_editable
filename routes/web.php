@@ -16,5 +16,8 @@
 // });
 
 Auth::routes();
-Route::get('/', ['uses' => 'PageController@index']);
+Route::match(['get', 'post'], '/', function(){
+    return redirect('/page1');
+});
+Route::get('/page1', ['uses' => 'PageController@index']);
 Route::post('page/update/{id}', ['as' => 'page/update', 'uses' => 'PageController@update']);

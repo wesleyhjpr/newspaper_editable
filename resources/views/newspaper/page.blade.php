@@ -19,13 +19,18 @@
                         <hr class="style14">
                     </div> 
                 @endforeach                
-            </div>         
-            <button type="button" class="btn btn-primary float-right">Atualizar</button>         
+            </div>
+            @guest
+            @else         
+            <button type="button" class="btn btn-primary float-right">Atualizar</button>  
+            @endguest       
         </div> 
     </div>    
 </div>
 @endsection
-@section('scripts')
+@section('scripts') 
+@guest
+@else 
 <script>
 $(document).ready(function() {
     $("button").click(function(){
@@ -47,4 +52,5 @@ $(document).ready(function() {
     });
 });
 </script>
+@endguest
 @endsection

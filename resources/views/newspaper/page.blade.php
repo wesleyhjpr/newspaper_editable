@@ -1,5 +1,19 @@
 @extends('layouts.app')
-
+@section('scripts')
+<script>
+$(document).ready(function() {
+    $('.col-md-6').find('a, p').each(function() {
+        $(this).click(function() {
+            $('.col-md-6 a').not($(this)).prop('contenteditable', false);
+            $(this).prop('contenteditable', true);
+        });
+        $(this).blur(function() {
+            $(this).prop('contenteditable', false);
+        });
+    });
+});
+</script>
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -16,7 +30,7 @@
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
                     </div>
                     <hr class="style14">
-                </div>                    
+                </div> 
                 <div class="col-md-6">
                     <a href="#" class="section-title first">América Latina</a>
                     <div class="teaser-title">

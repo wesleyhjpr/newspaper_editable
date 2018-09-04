@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <img src="https://www.valor.com.br/sites/all/themes/basic/images/logo-valor-economico-v2.png" alt="Valor Econômico." title="Valor Econômico.">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="row justify-content-center">

@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('newspaper.page');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', ['uses' => 'PageController@index']);
+Route::post('page/update/{id}', ['as' => 'page/update', 'uses' => 'PageController@update']);
